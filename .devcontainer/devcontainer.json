@@ -1,0 +1,25 @@
+
+{
+	"name": "Objection in Devcontainer",
+	"dockerFile": "Dockerfile",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": ["ms-vscode.cpptools"],
+
+	"runArgs": [
+		// --privileged grants access to /dev on host.
+		"--privileged"
+	],
+
+	"remoteUser": "root",
+
+	"mounts": [
+		// Mount the host's device to this container's.
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind,consistency=consistent"
+	]
+}
